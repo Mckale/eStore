@@ -1,0 +1,11 @@
+{% extends 'home.html' %}
+
+{% block container %}
+  <div class="top-pad">
+    <img src="{{ url_for('static', filename='uploads/' + product.image_path) }}" alt="Smiley face" height="350" width="350"/>
+    <h1>{{ product.product_name }}</h1>
+    <p><small> Category: {{ product.category.category_name }}</small>
+    <P><small> Weight: {{ product.weight }}kg </small>
+    <h3>{{ product.price }}$</h3>
+  </div>
+{% endblock %}

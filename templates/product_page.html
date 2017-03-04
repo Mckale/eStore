@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head section -->
+  <head >
+    <title>eStore</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=devise-width,initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/Estore.ico') }}">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  
+
+
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    
+    <!-- Dcustom scripts & css
+    ================================================== -->
+    
+
+    <!-- Animate.css library -->
+    <link href="static/css-style/animate.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css-style/demo.css" rel="stylesheet">
+
+  </head>
+<!-- ============================================================================================================== -->
+
+  <!--- Header section -->
+  <header>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img style="max-width: 100px; margin-top: -5px;" src="{{ url_for('static',filename='images/eStorelogo.png') }}">
+      </a>
+    </div>
+  
+
+  <!--- Container section -->
+  <div class="container-fluid">
+    <a href="/">
+      <button style="margin-top: 3px; margin-bottom: 2px; height: 44px; margin-right: 5px" type="button" class="btn btn-primary" aria-label="Left Align">
+        <span class="glyphicon glyphicon-shopping-cart " aria-hidden="true">
+        </span>
+         Home
+      </button>
+    </a>
+    
+
+    <!-- Navbar itens -->
+    <ul class="nav navbar-nav navbar-right">
+      <div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;" class="container-fluid">
+        <h5>
+          <a href="/">
+            <span class="glyphicon glyphicon-th">
+            </span>
+             Categories&nbsp;&nbsp;&nbsp;
+          </a>
+          <a href="/">
+            <span class="glyphicon glyphicon-log-in">
+            </span>
+             Logout&nbsp;&nbsp;&nbsp;
+          </a>
+          <a href="/signin/"><span class="glyphicon glyphicon-pencil"></span>Open Store</a>
+        </h5>
+      </div>
+    </ul>
+      </ul>
+      </div>
+  </header>
+  
+  <!-- separates header from body -->
+  <nav class="navbar navbar-default" style="background-color: #f4f4f4;">
+    <div class="btn-group" role="group" aria-label="categories" style="padding-top: 5.5px; padding-bottom: 5.5px; margin-left: 400px; margin-right: 400px;">
+      <button type="button" class="btn btn-default">Electronics</button>
+      <button type="button" class="btn btn-default">Home & Accessories</button>
+      <button type="button" class="btn btn-default">Food</button>
+      <button type="button" class="btn btn-default">Clothing & accessories</button>
+      <button type="button" class="btn btn-default">Video Games</button>
+    </div>
+  </nav>
+
+
+  
+  <body>
+    <!-- BANNER -->
+    <div class="nav" style="background-color: white; hight: 5px; text-align: center">
+    <p><a class="btn btn-primary btn-lg"  role="button">Name of the store</a></p>
+    </div>
+    
+    {% extends 'base.html' %}
+
+    {% block container %}
+    <div class="top-pad">
+      {% for product in products.items %}
+        <div class="well">
+          <a href="{{ url_for('product', id=product.id) }}">{{ product.name }}
+          <img src="{{ url_for('static', filename='uploads/' + product.image_path) }}" alt="Smiley face" height="100" width="100"/></a>
+          <h1><p><small>{{product.product_name}}</small><p></h1>
+          <p><small>$ {{ product.price }}</small><p>
+        </div>
+      {% endfor %}
+
+      {% if products.has_prev %}
+        <a href="{{ url_for('products', page=products.prev_num) }}">
+          {{"<< Previous Page"}}
+        </a>
+      {% else %}
+      {{"<< Previous Page"}}
+      {% endif %}
+       |
+      {% if products.has_next %}
+        <a href="{{ url_for('products', page=products.next_num) }}">
+          {{"Next page >>"}}
+        </a>
+      {% else %}
+      {{"Next page >>"}}
+      {% endif %}
+    </div>
+{% endblock %}
+
+    <!-- where products are populated -->
+    <div align="center, " style="margin-left: 100px; margin-right: 100px; background-color: yellow;">
+    
+    </div><!-- /.container -->
+
+
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- Demo scripts -->
+    <script src="static/js-style/demo.js"></script>
+  </body>
+
+</html>

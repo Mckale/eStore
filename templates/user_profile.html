@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+
+{% block container %}
+  <div class="top-pad">
+    <h2>{{ user_product_page.user_product_page }}</h2>
+    <div class="well">
+      {% for product in user_product_page.products %}
+        <h3>
+          <a href="{{ url_for('product', id=product.id) }}">{{ product.category_name }}
+          <img src="{{ url_for('static', filename='uploads/' + product.image_path) }}" alt="Smiley face" height="200" width="200"/></a>
+          <p><small>$ {{ product.price }}</small><p>
+          <p><small>{{product.product_name}}</small><p>
+          <p><small>{{product.weight}}kg</small><p>
+          
+        </h3>
+        {% endfor %}
+      
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+{% extends 'home.html' %}
+
+{% block container %}
+  <div class="top-pad">
+    {% for prod in user_profile %}
+    <a href="{{ url_for('category', id=category.id) }}">
+      <h2>{{ prod.username }}</h2>
+    </a>
+    {% endfor %}
+  </div>
+{% endblock %}

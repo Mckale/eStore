@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head >
+    <meta charset="utf-8">
+    <title>Python Programming Tutorial</title>
+    <meta name="viewport" content="width=devise-width,initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  </head>
+  <header>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img style="max-width: 45px; margin-top: -14px;" src="{{ url_for('static',filename='images/mainlogo.png') }}">
+      </a>
+    </div>
+
+    <div class="container-fluid">
+      <a href="/dashboard/"><button style="margin-top: 2px; margin-bottom: 2px; height: 44px; margin-right: 5px" type="button" class="btn btn-primary" aria-label="Left Align" >
+        <span class=" glyphicon glyphicon-off" aria-hidden="true"></span>Start Learning
+      </button></a>
+    
+
+    
+    <ul class="nav navbar-nav navbar-right">
+      
+      <div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;" class="container-fluid">
+        <h5>
+          <a href="/support-donate/"><span class="glyphicon glyphicon-heart"></span> Support&nbsp;&nbsp;&nbsp;</a>
+          <a role="presentation" class="active" data-toggle="modal" data-target="#exampleModal" href="#"><span class="glyphicon glyphicon-log-in"></span> Login&nbsp;&nbsp;&nbsp;</a>
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="container-fluid">
+                    <form action="" class="form-inline" method="post">
+                      <input type="text" class="form-control" placeholder="Username" name="username" value="">
+                      <input type="password" class="form-control" placeholder="Password" name="password" value="">
+                      <input class="btn btn-primary" type="submit" value="Login">
+                    </form>
+
+                    <div class="container">
+                      <br>
+                      <p>No account?<a href="/register"> Register here</a></p>
+                      <br>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <a role="presentation" class="active" data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-pencil"></span>Sign Up</a>
+        </h5>
+        <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModelLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" arial-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Register</h4>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form method=post action="/register">
+                    <dl>
+                      <dt><label for="username">Username</label></dt>
+                        <dd><input id="username" name="username" type="text" value=""></dd>
+
+                      <dt><label for="Email Address">Username</label></dt>
+                        <dd><input id="email" name="email" type="text" value=""></dd>
+
+                      <dt><label for="password">New Password</label></dt>
+                        <dd><input id="password" name="pasword" type="password" value=""></dd>
+
+                      <dt><label for="confirm">Repeat Password</label></dt>
+                        <dd><input id="confirm" name="confirm" type="password" value=""></dd>
+
+                      <dt><label for="accept_tos">I accept the <a href="/about/tos" target="blank">Terms of Service</a> and <a href="/about/privacy-policy">Privacy Notice</a>(updated Feb 10, 2017)</label></dt>
+                        <dd><input id="accept_tos" name="accept_tos" type="checkbox" value="y"></dd>
+                    </dl>
+                    <p><input type=submit value=register></p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+      </ul>
+      </div>
+  </header>
+  <body>
+    <!-- BANNER -->
+      <div class="bannercontainer bannerV1">
+        <div class="fullscreenbanner-container">
+          <div class="fullscreenbanner">
+            <ul>
+              <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700" data-title="Slide 1">
+                <img src="static\images\download.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                <div class="slider-caption slider-captionV1 container">
+                  
+                  <div class="tp-caption rs-caption-1 sft start" 
+                    data-hoffset="0" 
+                    data-x="370" 
+                    data-y="54" 
+                    data-speed="800" 
+                    data-start="1500" 
+                    data-easing="Back.easeInOut" 
+                    data-endspeed="300" >
+                    <img src="static\images\download.jpg" alt="slider-image" style="width: 781px; height: 416px;">
+                  </div>
+
+                  <div class="tp-caption rs-caption-2 sft"
+                    data-hoffset="0"
+                    data-y="119"
+                    data-speed="800"
+                    data-start="2000"
+                    data-easing="Back.easeInOut"
+                    data-endspeed="300">
+                    Canvas 
+                  </div>
+
+                  <div class="tp-caption rs-caption-3 sft"
+                    data-hoffset="0"
+                    data-y="185"
+                    data-speed="1000"
+                    data-start="3000"
+                    data-easing="Power4.easeOut"
+                    data-endspeed="300"
+                    data-endeasing="Power1.easeIn"
+                    data-captionhidden="off">
+                    Exclusive to <br>
+                    BigBag <br>
+                    <small>Spring / Summer 2016</small>
+                  </div>
+                  <div class="tp-caption rs-caption-4 sft"
+                    data-hoffset="0"
+                    data-y="320"
+                    data-speed="800"
+                    data-start="3500"
+                    data-easing="Power4.easeOut"
+                    data-endspeed="300"
+                    data-endeasing="Power1.easeIn"
+                    data-captionhidden="off">
+                    <span class="page-scroll"><a target="_blank" href="https://goo.gl/VCbeOp" class="btn primary-btn">Buy Now<i class="glyphicon glyphicon-chevron-right"></i></a></span>
+                  </div>
+                </div>
+              </li>
+              <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
+                <img src="static\images\download.jpg" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                <div class="slider-caption slider-captionV1 container captionCenter">
+                  <div class="tp-caption rs-caption-1 sft start text-center"
+                    data-x="center"
+                    data-y="228"
+                    data-speed="800"
+                    data-start="1500"
+                    data-easing="Back.easeInOut"
+                    data-endspeed="300">
+                    <img src="static\images\download.jpg" alt="slider-image">
+                  </div>
+
+                  <div class="tp-caption rs-caption-2 sft text-center"
+                    data-x="center"
+                    data-y="50"
+                    data-speed="800"
+                    data-start="2000"
+                    data-easing="Back.easeInOut"
+                    data-endspeed="300">
+                    Exclusive to BigBag
+                  </div>
+
+                  <div class="tp-caption rs-caption-3 sft text-center"
+                    data-x="center"
+                    data-y="98"
+                    data-speed="1000"
+                    data-start="3000"
+                    data-easing="Power4.easeOut"
+                    data-endspeed="300"
+                    data-endeasing="Power1.easeIn"
+                    data-captionhidden="off">
+                    Canvas Sneaker
+                  </div>
+
+                  <div class="tp-caption rs-caption-4 sft text-center"
+                    data-x="center"
+                    data-y="156"
+                    data-speed="800"
+                    data-start="3500"
+                    data-easing="Power4.easeOut"
+                    data-endspeed="300"
+                    data-endeasing="Power1.easeIn"
+                    data-captionhidden="off">
+                    <span class="page-scroll"><a target="_blank" href="https://goo.gl/VCbeOp" class="btn primary-btn">Buy Now<i class="glyphicon glyphicon-chevron-right"></i></a></span>
+                  </div>
+                </div>
+              </li>
+              <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700"  data-title="Slide 3">
+                <img src="static\images\download.jpg" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                <div class="slider-caption slider-captionV1 container">
+                  <div class="tp-caption rs-caption-1 sft start"
+                    data-hoffset="0"
+                    data-y="85"
+                    data-speed="800"
+                    data-start="1500"
+                    data-easing="Back.easeInOut"
+                    data-endspeed="300">
+                    <img src="static\images\download.jpg" alt="slider-image">
+                  </div>
+
+                  <div class="tp-caption rs-caption-2 sft "
+                    data-hoffset="0"
+                    data-y="119"
+                    data-x="800"
+                    data-speed="800"
+                    data-start="2000"
+                    data-easing="Back.easeInOut"
+                    data-endspeed="300">
+                    Canvas Sneaker
+                  </div>
+
+                  <div class="tp-caption rs-caption-3 sft"
+                    data-hoffset="0"
+                    data-y="185"
+                    data-x="800"
+                    data-speed="1000"
+                    data-start="3000"
+                    data-easing="Power4.easeOut"
+                    data-endspeed="300"
+                    data-endeasing="Power1.easeIn"
+                    data-captionhidden="off">
+                    Exclusive to <br>
+                    BigBag <br>
+                    <small>Spring / Summer 2016</small>
+                  </div>
+
+                  <div class="tp-caption rs-caption-4 sft"
+                    data-hoffset="0"
+                    data-y="320"
+                    data-x="800"
+                    data-speed="800"
+                    data-start="3500"
+                    data-easing="Power4.easeOut"
+                    data-endspeed="300"
+                    data-endeasing="Power1.easeIn"
+                    data-captionhidden="off">
+                    <span class="page-scroll"><a target="_blank" href="https://goo.gl/VCbeOp" class="btn primary-btn">Buy Now<i class="glyphicon glyphicon-chevron-right"></i></a></span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+  </body>
+
+
+
+
+
+
+
+</html>

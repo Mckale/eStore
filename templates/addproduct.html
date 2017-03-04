@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Add product</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=devise-width,initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/Estore.ico') }}">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    
+	    
+        <script>
+		$(function(){
+			    $('#fileupload').fileupload({
+        			url: 'upload',
+        			dataType: 'json',
+        			add: function (e, data) {
+        				data.submit();
+        			},
+			        success:function(response,status) {
+					console.log(response.filename);
+					var filePath = 'static/Uploads/' + response.filename;
+					$('#imgUpload').attr('src',filePath);
+					$('#filePath').val(filePath);
+			        	console.log('success');
+			        },
+			        error:function(error){
+			        	console.log(error);
+			        }
+    			});
+		})
+	</script>
+
+    <style>
+	.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+    </style>
+   
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+	     <li role="presentation"><a href="/">Home</a></li>
+	    <li role="presentation" class="active"><a href="/appproduct/">Add Item</a></li>
+            <li role="presentation" ><a href="/">Logout</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Add Product</h3>
+      </div>
+     
+
+	<div class="well">
+    
+    <form role="form" method="post" action="/addWish">
+      <!-- Form Name -->
+      <legend>Create Your Store</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label  for="txtTitle">Product Name</label>  
+        
+        <input id="txtTitle" name="inputTitle" type="text" placeholder="placeholder" class="form-control input-md">
+        
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label  for="txtTitle">Product Prise</label>  
+        
+        <input id="txtTitle" name="inputTitle" type="text" placeholder="placeholder" class="form-control input-md">
+        
+      </div>
+
+      <!-- Textarea -->
+      <div class="form-group">
+        <label for="txtPost">Description</label>
+                           
+          <textarea class="form-control" id="txtPost" name="inputDescription" ></textarea>
+        
+      </div>
+
+
+      <div class="form-group">
+        <label for="txtPost">Photos</label>
+                           
+      <div class="input-group">
+                      <span class="input-group-btn">
+                          <span class="btn btn-primary btn-file">
+                              Browse&hellip; <input type="file" id="fileupload" name="file" multiple>
+                          </span>
+                      </span>
+      		<div class="pull-right">
+                      <img  id="imgUpload" style="width: 140px; height: 140px;" class="img-thumbnail"><input type="hidden" name="filePath" id="filePath"></input>
+      		</div>
+                  </div>
+        
+      </div>
+
+
+      <!-- Button -->
+      <div class="form-group">
+          <p><a href="/product_page/">publish</a></p>
+          <p class="text-center">
+          <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Publish" />
+        	</p>
+          
+      </div>
+
+
+</form>
+
+</div>
+
+
+      
+
+      <footer class="footer">
+        <p>&copy; Company 2016</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
+
